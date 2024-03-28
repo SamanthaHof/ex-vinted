@@ -1,27 +1,26 @@
 import "./App.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
 // Import pour pouvoir exécuter les routes
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// Import Pages
+// Import Pages (Routes)
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 
-// Import components
+// Import components (Compossant)
 import Header from "./components/Header";
 
-function App() {}
-
-return (
-  <Router>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/Offer" element={<Offer />} />
-      <Route path="/Header" element={<Header />} />
-    </Routes>
-  </Router>
-);
+function App() {
+  return (
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Offers/:id" element={<Offer />} />
+        <Route path="/Header" element={<Header />} />
+      </Routes>
+    </Router>
+  );
+}
 
 export default App;

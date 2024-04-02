@@ -28,26 +28,33 @@ const Offer = () => {
     <p>Loading...</p>
   ) : (
     <main>
-      <h1>Offer</h1>
-      <img src={data.product_image.secure_url} alt="" />
+      <div className="pic-item">
+        <img src={data.product_image.secure_url} alt="" />
+      </div>
       <p>{data.product_price} €</p>
       <div>
-        {/*<p>MARQUE : {data.product_details[0].MARQUE}</p>
-        <p>ETAT : {data.product_details[0].ETAT}</p>
-        <p>COULEUR : {data.product_details[0].COULEUR}</p>*/}
-
         {data.product_details.map((detail) => {
-          console.log(detail);
+          //console.log(detail);
           const keys = Object.keys(detail);
-          console.log(keys);
+          // console.log(keys);
           const keyName = keys[0];
-          console.log(keyName);
+          //console.log(keyName);
           return (
             <p key={keyName}>
               {keyName} {detail[keyName]}
             </p>
           );
         })}
+        <Link
+          to="/payment"
+          state={{
+            title: offer.product_name,
+            price: offer.product_price,
+            decription: offer.product_description,
+          }}
+        >
+          <button className="">Acheter</button>
+        </Link>
       </div>
     </main>
   );
